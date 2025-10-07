@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+                    {% include "Admin/admin_navbar.html" %}
+
+
+
+<div class="container mt-3">
+    <h3 class="text-center text-success">Children Information for {{ ngo_state }}</h3>
+    <hr>
+    <div class="row">
+        {% for child in children %}
+        <div class="col-md-3 mt-2">
+            <div class="card crd-ho">
+                <div class="card-body text-center">
+                    {% if child.img %}
+                        <img src="{{ child.img.url }}" style="width:150px; height:200px;" class="img-thumbnail">
+                    {% else %}
+                        <img src="{% static 'img/default_child.png' %}" style="width:150px; height:200px;" class="img-thumbnail">
+                    {% endif %}
+                    <p class="mt-2">Name: {{ child.person_name }}</p>
+                    <p>Contact: {{ child.person_contact }}</p>
+                    <p>City: {{ child.city }}</p>
+                    <p>State: {{ child.state }}</p>
+                    <p>Country: {{ child.country }}</p>
+                    <p>Pincode: {{ child.pincode }}</p>
+                    <p>Address: {{ child.address }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <p class="text-center text-danger">No children found in your state.</p>
+        {% endfor %}
+    </div>
+</div>
+    <!-- {% include "home/footer.html" %} -->
+
+</body>
+</html>

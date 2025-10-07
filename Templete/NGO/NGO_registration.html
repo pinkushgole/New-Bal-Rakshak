@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>NGO Registration</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+                {% include "home/navbar.html" %}
+        <div class="container p-3">
+            <h3 class="text-center text-primary">Sign Up for NGO's</h3>
+            <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="form-group">
+                    <div class="form-group ">
+                        <div class="form-group">
+                            <label for="inputAddress">NGO's Name</label>
+                            <input type="text" name="ngo_name" class="form-control" id="inputAddress" placeholder="Enter College Name" required>
+                        </div>
+                   </div>
+                </div>
+                <div class="form-row ">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" name="ngo_email" class="form-control" id="inputEmail4" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" name="ngo_password" class="form-control" id="inputPassword4" placeholder="Enter Password" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Contact Number</label>
+                    <input type="text" name="ngo_contact" id="inputAddress" class="form-control" placeholder="Enter Contact number" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Location</label>
+                    <input type="text" name="ngo_location" class="form-control" id="inputAddress" placeholder="Enter College Location" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" name="city" class="form-control" id="inputCity" placeholder="Enter City Name" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                                        <label>State</label>
+                                        <select name="state" class="form-control" required>
+                                            <option value="">-- Select State --</option>
+                                            <option value="AP">Andhra Pradesh</option>
+                                            <option value="AR">Arunachal Pradesh</option>
+                                            <option value="AS">Assam</option>
+                                            <option value="BR">Bihar</option>
+                                            <option value="CG">Chhattisgarh</option>
+                                            <option value="GA">Goa</option>
+                                            <option value="GJ">Gujarat</option>
+                                            <option value="HR">Haryana</option>
+                                            <option value="HP">Himachal Pradesh</option>
+                                            <option value="JH">Jharkhand</option>
+                                            <option value="KA">Karnataka</option>
+                                            <option value="KL">Kerala</option>
+                                            <option value="MP">Madhya Pradesh</option>
+                                            <option value="MH">Maharashtra</option>
+                                            <option value="MN">Manipur</option>
+                                            <option value="ML">Meghalaya</option>
+                                            <option value="MZ">Mizoram</option>
+                                            <option value="NL">Nagaland</option>
+                                            <option value="OD">Odisha</option>
+                                            <option value="PB">Punjab</option>
+                                            <option value="RJ">Rajasthan</option>
+                                            <option value="SK">Sikkim</option>
+                                            <option value="TN">Tamil Nadu</option>
+                                            <option value="TS">Telangana</option>
+                                            <option value="TR">Tripura</option>
+                                            <option value="UP">Uttar Pradesh</option>
+                                            <option value="UK">Uttarakhand</option>
+                                            <option value="WB">West Bengal</option>
+                                            <option value="DL">Delhi</option>
+                                            <option value="JK">Jammu and Kashmir</option>
+                                            <option value="LD">Ladakh</option>
+                                            <option value="PY">Puducherry</option>
+                                            <option value="CH">Chandigarh</option>
+                                        </select>
+                                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Pin Code</label>
+                        <input type="text" name="pincode" placeholder="Enter Area Code" class="form-control" id="inputZip" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Upload Photo (Logo/Building)</label><input
+                        name="bing" type="file" class="form-control-file"
+                        id="exampleFormControlFile1">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+               <a href="{% url 'index' %}" class="btn btn-primary text-white mx-2">Back</a>
+            </form>
+        </div>
+             {% include "home/footer.html" %}
+    </body>
+</html>

@@ -1,0 +1,145 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Information Page</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+                {% include "home/navbar.html" %}
+        <div class="container-fluide" >
+
+            <div class="container mt-3">
+                <h3 class="text-center text-success">Add Children Information</h3>
+                <div class="row ">
+                    <div class="col-md-6 mt-3">
+                        <div class="card crd-ho" >
+                            <div class="card-body text-center">
+                                <img alt="#" src="{% static 'img/child1.jpg' %}"
+                                     style="width: 300px; height: 200px" class="img-thunblin">
+                            </div> 
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <form action="{% url 'add_children' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="exampleFormControlFile1">Upload Children Photo</label>
+                                        <input name="img" type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Children Address</label>
+                                        <input type="text" name="address" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>More Information About Children</label>
+                                        <textarea class="form-control" name="details" rows="3" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Person Name</label>
+                                        <input type="text" name="person_name" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Person Contact</label>
+                                        <input type="text" name="person_contact" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-row">
+                                    <!-- ✅ City -->
+
+                                    <div class="form-group col-md-6">
+                                        <label>City</label>
+                                        <input type="text" name="city" class="form-control" required>
+                                    </div>
+
+                                    <!-- ✅ State Dropdown -->
+                                    <div class="form-group col-md-6">
+                                        <label>State</label>
+                                        <select name="state" class="form-control" required>
+                                            <option value="">-- Select State --</option>
+                                            <option value="AP">Andhra Pradesh</option>
+                                            <option value="AR">Arunachal Pradesh</option>
+                                            <option value="AS">Assam</option>
+                                            <option value="BR">Bihar</option>
+                                            <option value="CG">Chhattisgarh</option>
+                                            <option value="GA">Goa</option>
+                                            <option value="GJ">Gujarat</option>
+                                            <option value="HR">Haryana</option>
+                                            <option value="HP">Himachal Pradesh</option>
+                                            <option value="JH">Jharkhand</option>
+                                            <option value="KA">Karnataka</option>
+                                            <option value="KL">Kerala</option>
+                                            <option value="MP">Madhya Pradesh</option>
+                                            <option value="MH">Maharashtra</option>
+                                            <option value="MN">Manipur</option>
+                                            <option value="ML">Meghalaya</option>
+                                            <option value="MZ">Mizoram</option>
+                                            <option value="NL">Nagaland</option>
+                                            <option value="OD">Odisha</option>
+                                            <option value="PB">Punjab</option>
+                                            <option value="RJ">Rajasthan</option>
+                                            <option value="SK">Sikkim</option>
+                                            <option value="TN">Tamil Nadu</option>
+                                            <option value="TS">Telangana</option>
+                                            <option value="TR">Tripura</option>
+                                            <option value="UP">Uttar Pradesh</option>
+                                            <option value="UK">Uttarakhand</option>
+                                            <option value="WB">West Bengal</option>
+                                            <option value="DL">Delhi</option>
+                                            <option value="JK">Jammu and Kashmir</option>
+                                            <option value="LD">Ladakh</option>
+                                            <option value="PY">Puducherry</option>
+                                            <option value="CH">Chandigarh</option>
+                                        </select>
+                                    </div>
+                                    </div>
+
+                                    <div class="form-row">
+
+                                    <!-- ✅ Pincode (optional) -->
+                                    <div class="form-group col-md-6">
+                                        <label>Pincode</label>
+                                        <input type="text" name="pincode" class="form-control" placeholder="">
+                                    </div>
+                              
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-primary mt-3">Add Information</button>
+                                    <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Back</a>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                              {% include "home/footer.html" %}
+
+    </body>
+</html>
