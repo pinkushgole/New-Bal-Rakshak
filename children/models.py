@@ -1,11 +1,9 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
-
+from cloudinary.models import CloudinaryField
 
 class ChildrenInfo(models.Model):
-    img = models.ImageField(upload_to='children_images/', blank=True, null=True)  # For storing image
+    # img = models.ImageField(upload_to='children_images/', blank=True, null=True)  # For storing image
+    img = CloudinaryField('children_images', blank=True, null=True )
     address = models.TextField()
     details = models.TextField()
     person_name = models.CharField(max_length=100)

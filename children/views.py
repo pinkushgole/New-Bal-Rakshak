@@ -30,6 +30,9 @@ def add_children(request):
             country=country
         )
         child.save()
+        
+        if child.img:
+            print("✅ Cloudinary Image URL:", child.img.url)
 
         # Redirect ya success message bhi de sakte ho
         return render(request, 'home/children_info_add.html', {

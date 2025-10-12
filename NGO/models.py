@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 STATE_CHOICES = [
     ("AP", "Andhra Pradesh"),
@@ -64,7 +65,7 @@ class NGOInfo(AbstractUser):
     name = models.CharField(max_length=100)
     contact = models.CharField(max_length=15)
     address = models.TextField()
-    img = models.ImageField(upload_to="ngo_images/", blank=True, null=True)
+    img = CloudinaryField('ngo_images', blank=True, null=True )
 
     city = models.CharField(max_length=50, default="Indore")
     state = models.CharField(max_length=50, choices=STATE_CHOICES, default="MP")

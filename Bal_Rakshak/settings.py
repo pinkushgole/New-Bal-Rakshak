@@ -16,6 +16,11 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+import cloudinary_storage
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -40,7 +45,9 @@ INSTALLED_APPS = [
     'NGO',
     'children',
     'home',
-    'dashboard'
+    'dashboard',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -124,10 +131,18 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static",]
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+cloudinary.config(
+    cloud_name="dawyddsxt",
+    api_key="892667429647643",
+    api_secret="m7DruaxlP3c_P8WDYx-7p0G_Bi8",
+)
